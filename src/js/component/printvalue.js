@@ -1,36 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
-const Square = props => {
-	// const [value, setValue] = useState(undefined);
-
-	// const [print, setPrint] = useState("");
-	// const myCallBackFunction = props.callbackfunc;
-
-	// const setMyValue = () => {
-	// 	if (props.value == "sun") {
-	// 		setPrint(<i className="fas fa-sun"></i>);
-	// 	}
-	// 	if (props.value == "moon") {
-	// 		setPrint(<i className="fas fa-moon"></i>);
-	// 	}
-	// 	myCallBackFunction(props.position);
-	// 	console.log(props.value, "heyyyyyyyyyyyyyyyyy");
-	// };
-
+const PrintValue = props => {
+	const [value, setValue] = useState(undefined);
+	let print = "";
+	if (value == true) {
+		print = "fas fa-sun";
+	}
+	if (value == false) {
+		print = "fas fa-moon";
+	}
 	return (
-		<button className="col-4 square" onClick={props.onClick}>
-			{props.value}
-		</button>
+		<div className="value" onClick={() => setValue(props.value)}>
+			<i className={print}></i>
+		</div>
 	);
 };
-export default Square;
+export default PrintValue;
 
-Square.propTypes = {
-	value: PropTypes.string,
-	onClick: PropTypes.any
+PrintValue.propTypes = {
+	value: PropTypes.bool
 };
-// const isEmptyValue = () => {
-// 	if (print != "") {
-// 		setValue(props.value);
-// 	}
-// };
