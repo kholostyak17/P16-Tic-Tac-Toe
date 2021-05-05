@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 const PrintValue = props => {
 	const [value, setValue] = useState("polla");
@@ -13,7 +13,7 @@ const PrintValue = props => {
 		//check = check + 1;
 	}
 	return (
-		<div className="value" onClick={props.onClick}>
+		<div className="value" onClick={() => setValue(props.value)}>
 			{print}
 		</div>
 	);
@@ -21,6 +21,5 @@ const PrintValue = props => {
 export default PrintValue;
 
 PrintValue.propTypes = {
-	value: PropTypes.bool,
-	onClick: PropTypes.func
+	value: PropTypes.bool
 };
