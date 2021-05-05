@@ -10,40 +10,34 @@ import PropTypes from "prop-types";
 function MyModal(props) {
 	return (
 		<Modal {...props} aria-labelledby="contained-modal-title-vcenter">
-			<Modal.Header closeButton>
-				<Modal.Title id="contained-modal-title-vcenter">
-					Using Grid in Modal
-				</Modal.Title>
-			</Modal.Header>
-			<Modal.Body className="show-grid">
-				<Container>
-					<form action="input">
+			<form>
+				<Modal.Header className="show-grid bg-warning" closeButton>
+					<Modal.Title id="contained-modal-title-vcenter">
+						<span className="text-danger">Tic Tac Toe GAME</span>
+					</Modal.Title>
+				</Modal.Header>
+				<Modal.Body className="show-grid bg-warning">
+					<Container>
 						<Row>
 							<Col md={6}>
 								<input
 									type="text"
-									placeholder="Jugador 1 (X)"></input>
+									placeholder="Player SUN"></input>
 							</Col>
 							<Col md={6}>
 								<input
 									type="text"
-									placeholder="Jugador 2 (O)"></input>
+									placeholder="Player MOON"></input>
 							</Col>
 						</Row>
-						<Row>
-							<Col xs={6} md={6}>
-								<div className="x">X</div>
-							</Col>
-							<Col xs={6} md={6}>
-								<div className="o">O</div>
-							</Col>
-						</Row>
-					</form>
-				</Container>
-			</Modal.Body>
-			<Modal.Footer>
-				<Button onClick={props.onHide}>Close</Button>
-			</Modal.Footer>
+					</Container>
+				</Modal.Body>
+				<Modal.Footer className="show-grid bg-warning d-flex justify-content-center">
+					<Button variant="danger" onClick={props.onHide}>
+						Go!
+					</Button>
+				</Modal.Footer>
+			</form>
 		</Modal>
 	);
 }
@@ -53,8 +47,8 @@ const App = () => {
 
 	return (
 		<>
-			<Button variant="primary" onClick={() => setModalShow(true)}>
-				Launch modal npwith grid
+			<Button variant="danger" onClick={() => setModalShow(true)}>
+				Game over! / New game
 			</Button>
 
 			<MyModal show={modalShow} onHide={() => setModalShow(false)} />
