@@ -13,8 +13,9 @@ const PrintValue = props => {
 			setPrint(<i className="fas fa-moon"></i>);
 		}
 		myCallBackFunction(props.position);
+		console.log(props.value, "heyyyyyyyyyyyyyyyyy");
 	};
-	console.log(props.value, "heyyyyyyyyyyyyyyyyy");
+
 	return (
 		<div
 			className="col-4 square"

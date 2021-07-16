@@ -3,9 +3,11 @@ import PropTypes, { element } from "prop-types";
 import PrintValue from "./printvalue.js";
 
 const Board = () => {
-	const [value, setValue] = useState("sun");
-	const [myMap, setMyMap] = useState("");
+	const [value, setValue] = useState("sun"); //turno
+	const [print, setPrint] = useState(""); //ficha
+	const [myMap, setMyMap] = useState(""); //tablero
 	const [myArray, setMyArray] = useState([
+		//array que contiene valores del juego
 		"",
 		"",
 		"",
@@ -18,32 +20,47 @@ const Board = () => {
 	]);
 
 	const putValueInArray = position => {
-		console.log(myArray, "gato");
 		if (myArray[position] == "") {
-			console.log(value, "perro");
-			setValue(!value);
+			console.log(myArray, ": estado del array");
+			console.log(value, ": estado del valor");
 			setMyArray(myArray.splice(position, 1, value));
 			if (value == "sun") {
-				console.log("si es sun ol");
 				setValue("moon");
+				console.log(value);
 			}
 			if (value == "moon") {
 				setValue("sun");
+				console.log(value);
 			}
 		}
 	};
+
+	const setMyValue = () => {
+		if (value == "sun") {
+			setPrint(<i className="fas fa-sun"></i>);
+		}
+		if (val == "moon") {
+			setPrint(<i className="fas fa-moon"></i>);
+		}
+		myCallBackFunction(props.position);
+		console.log(props.value, "heyyyyyyyyyyyyyyyyy");
+	};
+
 	useEffect(() => {
 		console.log(myArray);
 		setMyMap(
 			myArray.map((element, index) => {
 				console.log("HOLA!!!!");
 				return (
-					<PrintValue
-						key={index}
-						value={myArray[index]}
-						position={index}
-						callbackfunc={putValueInArray}
-					/>
+					<div
+						className="col-4 square"
+						onClick={
+							print == ""
+								? setMyValue
+								: console.log("Esta casilla ya está pintada")
+						}>
+						{print}
+					</div>
 				);
 			})
 		);
