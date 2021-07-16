@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-const PrintValue = props => {
+const Square = props => {
 	// const [value, setValue] = useState(undefined);
 
 	// const [print, setPrint] = useState("");
@@ -18,16 +18,16 @@ const PrintValue = props => {
 	// };
 
 	return (
-		<div className="col-4 square" onClick={props.callbackfunc}>
+		<div className="col-4 square" onClick={props.onClick}>
 			{props.value}
 		</div>
 	);
 };
-export default PrintValue;
+export default Square;
 
-PrintValue.propTypes = {
+Square.propTypes = {
 	value: PropTypes.string,
-	callbackfunc: PropTypes.func
+	onClick: PropTypes.func
 };
 // const isEmptyValue = () => {
 // 	if (print != "") {

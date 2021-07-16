@@ -1,23 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React, { Component } from "react";
 import PropTypes, { element } from "prop-types";
 import PrintValue from "./printvalue.js";
 
-const Board = () => {
+export default class Board extends Component {
 	// const [value, setValue] = useState("sun"); //turno
 	// const [print, setPrint] = useState(""); //ficha
-	const [myMap, setMyMap] = useState(""); //tablero
-	const [myArray, setMyArray] = useState([
-		// array que contiene valores del juego
-		"",
-		"",
-		"",
-		"",
-		"",
-		"",
-		"",
-		"",
-		""
-	]);
+	// const [myArray, setMyArray] = useState([
+	// 	// array que contiene valores del juego
+	// 	"",
+	// 	"",
+	// 	"",
+	// 	"",
+	// 	"",
+	// 	"",
+	// 	"",
+	// 	"",
+	// 	""
+	// ]);
 
 	// const putValueInArray = position => {
 	// 	if (myArray[position] == "") {
@@ -46,27 +45,35 @@ const Board = () => {
 	// 	console.log(props.value, "heyyyyyyyyyyyyyyyyy");
 	// };
 
-	useEffect(() => {
-		console.log(myArray);
-		setMyMap(
-			myArray.map((element, index) => {
-				console.log("HOLA!!!!");
-				return (
-					<PrintValue
-						key={index}
-						value={this.props.square[index]}
-						onClick={() => this.props.onClick(index)}
-					/>
-				);
-			})
+	printSquare(index) {
+		return (
+			<PrintValue
+				value={this.props.squares[index]}
+				onClick={() => this.props.onClick(index)}
+			/>
 		);
-	}, []);
+	}
 
-	return (
-		<div className="container">
-			<div className="row">{myMap}</div>
-		</div>
-	);
+	render() {
+		return (
+			<div className="container">
+				<div className="row">
+					{this.printSquare(0)}
+					{this.printSquare(1)}
+					{this.printSquare(2)}
+					{this.printSquare(3)}
+					{this.printSquare(4)}
+					{this.printSquare(5)}
+					{this.printSquare(6)}
+					{this.printSquare(7)}
+					{this.printSquare(8)}
+				</div>
+			</div>
+		);
+	}
+}
+
+Board.propTypes = {
+	squares: PropTypes.any,
+	onClick: PropTypes.func
 };
-
-export default Board;
