@@ -18,16 +18,16 @@ const Square = props => {
 	// };
 
 	return (
-		<div className="col-4 square" onClick={props.onClick}>
+		<button className="col-4 square" onClick={props.onClick}>
 			{props.value}
-		</div>
+		</button>
 	);
 };
 export default Square;
 
 Square.propTypes = {
 	value: PropTypes.string,
-	onClick: PropTypes.func
+	onClick: PropTypes.any
 };
 // const isEmptyValue = () => {
 // 	if (print != "") {

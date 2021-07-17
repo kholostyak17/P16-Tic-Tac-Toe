@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes, { element } from "prop-types";
-import PrintValue from "./printvalue.js";
+import Square from "./printvalue.js";
 
 export default class Board extends Component {
 	// const [value, setValue] = useState("sun"); //turno
@@ -47,7 +47,7 @@ export default class Board extends Component {
 
 	printSquare(index) {
 		return (
-			<PrintValue
+			<Square
 				value={this.props.squares[index]}
 				onClick={() => this.props.onClick(index)}
 			/>
@@ -75,5 +75,5 @@ export default class Board extends Component {
 
 Board.propTypes = {
 	squares: PropTypes.any,
-	onClick: PropTypes.func
+	onClick: PropTypes.any
 };
