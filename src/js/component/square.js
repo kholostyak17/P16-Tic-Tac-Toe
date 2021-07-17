@@ -10,7 +10,7 @@ const Square = props => {
 		print = "fas fa-moon";
 	}
 	return (
-		<div className="value" onClick={() => setValue(props.value)}>
+		<div className="col-4 square" onClick={props.onClick}>
 			<i className={print}></i>
 		</div>
 	);
@@ -18,5 +18,6 @@ const Square = props => {
 export default Square;
 
 Square.propTypes = {
-	value: PropTypes.bool
+	value: PropTypes.bool,
+	onClick: PropTypes.func
 };
