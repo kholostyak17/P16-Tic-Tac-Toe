@@ -8,34 +8,42 @@ const Board = props => {
 	function changeValue(position) {
 		setValue(!value);
 	}
-	// onClick={() => {
-	// 					changeValue(0);
-	// 				}};
+
+	const printSquare = position => {
+		console.log(props.allSquares[position], "my valorrr");
+		return (
+			<Square
+				value={props.allSquares[position]}
+				callBackFunc={() => {
+					props.callBackFunc(position);
+				}}
+			/>
+		);
+	};
 
 	return (
 		<div className="container">
 			<div className="row">
-				<Square value={props.value} onClick={props.onClick} />
-				<Square value={props.value} onClick={props.onClick} />
-				<Square value={props.value} onClick={props.onClick} />
+				{printSquare(0)}
+				{printSquare(1)}
+				{printSquare(2)}
 			</div>
 			<div className="row">
-				<Square value={props.value} onClick={props.onClick} />
-				<Square value={props.value} onClick={props.onClick} />
-				<Square value={props.value} onClick={props.onClick} />
+				{printSquare(3)}
+				{printSquare(4)}
+				{printSquare(5)}
 			</div>
 			<div className="row">
-				<Square value={props.value} onClick={props.onClick} />
-				<Square value={props.value} onClick={props.onClick} />
-				<Square value={props.value} onClick={props.onClick} />
+				{printSquare(6)}
+				{printSquare(7)}
+				{printSquare(8)}
 			</div>
 		</div>
 	);
 };
-
 export default Board;
 
 Board.propTypes = {
-	value: PropTypes.bool,
-	onClick: PropTypes.func
+	allSquares: PropTypes.array,
+	callBackFunc: PropTypes.func
 };

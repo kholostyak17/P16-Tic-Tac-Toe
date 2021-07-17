@@ -1,41 +1,36 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
+import PropTypes from "prop-types";
 import Board from "./board";
 
-export default class Game extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			turn: true,
-			stepNumber: 0,
-			history: [{ squares: Array(9).fill(null) }]
-		};
-	}
-	handleClick(i) {
-		const history = this.state.history.slice(0, this.state.stepNumber + 1);
-		const current = history[history.length - 1];
-		const squares = current.squares.slice();
-		squares[i] = this.state.turn ? "X" : "O";
-		this.setState({
-			history: history.concat({
-				squares: squares
-			}),
-			turn: !this.state.turn,
-			stepNumber: history.lenght
-		});
-	}
-	render() {
-		const history = this.state.history;
-		const current = history[this.state.stepNumber];
+const Game = props => {
+	const [state, setState] = useState({
+		nextPlayer: true,
+		stepNumber: 0,
+		history: [["", "", "", "", "", "", "", "", ""]]
+	});
+	const handleClick = position => {
+		console.log("click en casilla ", position + 1);
+		// 	const history = state.history.slice(0, state.stepNumber + 1);
+		// 	const currentPlayer = history[history.length - 1];  // selecciono el jugador actual
+		// 	const squares = currentPlayer.squares.slice();  //recoge array con todos los valores
+		// 	squares[index] = state.nextPlayer ? "X" : "O";  //asigno valor a casilla: true(sun) o false(moon)
+		// 	setState({
+		// 		nextPlayer: !state.nextPlayer,
+		// 		stepNumber: history.lenght,
+		// 		history: history.concat({squares: squares}),
+		// 	});  //alterno valor, asigno posición en array de la proxima acción,
+	};
+	const currentValues = state.history[state.stepNumber];
+	console.log(currentValues, "hey");
+	return (
+		<div>
+			<Board callBackFunc={handleClick} allSquares={currentValues} />
+		</div>
+	);
+};
+export default Game;
 
-		return (
-			<div>
-				<Board
-					onClick={i => {
-						this.handleClick(i);
-					}}
-					squares={current.squares}
-				/>
-			</div>
-		);
-	}
-}
+Game.propTypes = {
+	// allSquares: PropTypes.array,
+	// callBackFunc: PropTypes.func
+};
