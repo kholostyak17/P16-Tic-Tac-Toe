@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-const PrintValue = props => {
+const Square = props => {
 	const [value, setValue] = useState(undefined);
 	let print = "";
 	if (value == true) {
@@ -15,8 +15,8 @@ const PrintValue = props => {
 		</div>
 	);
 };
-export default PrintValue;
+export default Square;
 
-PrintValue.propTypes = {
+Square.propTypes = {
 	value: PropTypes.bool
 };

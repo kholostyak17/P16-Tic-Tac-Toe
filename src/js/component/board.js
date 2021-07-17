@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import PrintValue from "./printvalue.js";
+import Square from "./square.js";
 
 const Board = () => {
 	const [value, setValue] = useState(true);
