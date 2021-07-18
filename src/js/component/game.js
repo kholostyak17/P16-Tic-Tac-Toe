@@ -14,22 +14,13 @@ const Game = props => {
 		const currentStep = history[history.length - 1]; // selecciono el jugador actual
 		const squares = currentStep.squares; //aqui hago una  array con todos los valores
 		squares[position] = state.nextPlayer ? true : false; //asigno valor a casilla: true(sun) o false(moon)
-		console.log(
-			history,
-			"pollas",
-			currentStep,
-			"squares",
-			squares,
-			squares[position]
-		);
 		setState({
+			history: history.concat({ squares: squares }),
 			nextPlayer: !state.nextPlayer,
-			stepNumber: history.lenght,
-			history: history.concat({ squares: squares })
+			stepNumber: history.length
 		}); //alterno valor, e introduzco el nuevo array en el historial
 	};
-	const currentValuesToPrint = state.history[state.stepNumber];
-	console.log(currentValuesToPrint, "hey");
+	const currentValuesToPrint = state.history[state.stepNumber].squares;
 	return (
 		<div>
 			<Board
