@@ -4,8 +4,9 @@ import PropTypes from "prop-types";
 import Board from "./board";
 
 const Game = props => {
+	const [firstPlayer, setFirstPlayer] = useState(null);
 	const [state, setState] = useState({
-		nextPlayer: true,
+		nextPlayer: firstPlayer,
 		stepNumber: 0,
 		history: [{ squares: Array(9).fill(null) }]
 	});
@@ -65,7 +66,7 @@ const Game = props => {
 
 	const setNewGame = () => {
 		setState({
-			nextPlayer: true,
+			nextPlayer: firstPlayer,
 			stepNumber: 0,
 			history: [{ squares: Array(9).fill(null) }]
 		});
@@ -77,7 +78,10 @@ const Game = props => {
 	return (
 		<div className="game">
 			<div className="d-flex justify-content-around pt-4 buttons">
-				<AppModal />
+				<AppModal
+					setMoon={() => setFirstPlayer(false)}
+					setSun={() => setFirstPlayer(true)}
+				/>
 				<button
 					type="button"
 					className="btn btn-danger"

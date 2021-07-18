@@ -6,8 +6,12 @@ body{
 .modal-icon{
     background-color: black;
     font-size: 3.5rem;
-    border-radius: 1rem;
-    margin-top:1rem
+    border-radius: 0.75rem;
+    margin-top:1rem;
+}
+.selected{
+    border: 3px #dc3545 solid;
+    background-color: blue;
 }
 .game{
     display:flex;

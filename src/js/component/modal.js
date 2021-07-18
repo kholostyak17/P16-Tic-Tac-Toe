@@ -23,7 +23,9 @@ function MyModal(props) {
 								<span className="font-weight-bold">
 									Player SUN
 								</span>
-								<div className="modal-icon">
+								<div
+									className="modal-icon "
+									onClick={props.setSun}>
 									<i className="fas fa-sun"></i>
 								</div>
 							</div>
@@ -31,7 +33,9 @@ function MyModal(props) {
 								<span className="font-weight-bold">
 									Player MOON
 								</span>
-								<div className="modal-icon">
+								<div
+									className="modal-icon "
+									onClick={props.setMoon}>
 									<i className="fas fa-moon"></i>
 								</div>
 							</div>
@@ -63,5 +67,8 @@ const AppModal = () => {
 export default AppModal;
 
 MyModal.propTypes = {
+	setMoon: PropTypes.func,
+	setSun: PropTypes.func,
+	firstPlayer: PropTypes.any,
 	onHide: PropTypes.func
 };
