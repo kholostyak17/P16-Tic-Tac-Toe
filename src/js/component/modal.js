@@ -18,23 +18,29 @@ function MyModal(props) {
 				</Modal.Header>
 				<Modal.Body className="show-grid bg-warning">
 					<Container>
-						<Row>
-							<Col md={6}>
-								<input
-									type="text"
-									placeholder="Player SUN"></input>
-							</Col>
-							<Col md={6}>
-								<input
-									type="text"
-									placeholder="Player MOON"></input>
-							</Col>
-						</Row>
+						<div className="row text-center">
+							<div className="col-12 col-sm-6">
+								<span className="font-weight-bold">
+									Player SUN
+								</span>
+								<div className="modal-icon">
+									<i className="fas fa-sun"></i>
+								</div>
+							</div>
+							<div className="col-12 col-sm-6">
+								<span className="font-weight-bold">
+									Player MOON
+								</span>
+								<div className="modal-icon">
+									<i className="fas fa-moon"></i>
+								</div>
+							</div>
+						</div>
 					</Container>
 				</Modal.Body>
 				<Modal.Footer className="show-grid bg-warning d-flex justify-content-center">
 					<Button variant="danger" onClick={props.onHide}>
-						Go!
+						Play!!
 					</Button>
 				</Modal.Footer>
 			</form>
@@ -42,24 +48,20 @@ function MyModal(props) {
 	);
 }
 
-const App = () => {
+const AppModal = () => {
 	const [modalShow, setModalShow] = useState(true);
 
 	return (
 		<>
 			<Button variant="danger" onClick={() => setModalShow(true)}>
-				Game over! / New game
+				Resume
 			</Button>
-
 			<MyModal show={modalShow} onHide={() => setModalShow(false)} />
 		</>
 	);
 };
-
-export default App;
+export default AppModal;
 
 MyModal.propTypes = {
 	onHide: PropTypes.func
 };
-
-//reactDOM.renderDOM(<App />);

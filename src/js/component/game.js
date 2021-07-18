@@ -52,7 +52,12 @@ const Game = props => {
 			if (winner != null) {
 				setWinner(winner);
 				setTimeout(() => {
-					alert("ha ganado!!!");
+					alert(
+						"Ha ganado ".concat(
+							winner == true ? "SUN" : "MOON",
+							"!!)))"
+						)
+					);
 				}, 250);
 			}
 		}
