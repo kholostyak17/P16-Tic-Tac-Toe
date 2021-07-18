@@ -10,7 +10,6 @@ const Board = props => {
 	}
 
 	const printSquare = position => {
-		console.log(props.allSquares[position], "my valorrr");
 		return (
 			<Square
 				value={props.allSquares[position]}
@@ -22,21 +21,36 @@ const Board = props => {
 	};
 
 	return (
-		<div className="container">
-			<div className="row">
-				{printSquare(0)}
-				{printSquare(1)}
-				{printSquare(2)}
+		<div className="">
+			<div className="row text">
+				<div className="col-12 col-sm-5">
+					{"Movimiento: ".concat(props.state.stepNumber)}
+				</div>
+				<div className="col-12 col-sm-5 offset-sm-2">
+					{"Turno: "}
+					{props.state.nextPlayer == true ? (
+						<i className="fas fa-sun"></i>
+					) : (
+						<i className="fas fa-moon"></i>
+					)}
+				</div>
 			</div>
-			<div className="row">
-				{printSquare(3)}
-				{printSquare(4)}
-				{printSquare(5)}
-			</div>
-			<div className="row">
-				{printSquare(6)}
-				{printSquare(7)}
-				{printSquare(8)}
+			<div className="board">
+				<div className="row">
+					{printSquare(0)}
+					{printSquare(1)}
+					{printSquare(2)}
+				</div>
+				<div className="row">
+					{printSquare(3)}
+					{printSquare(4)}
+					{printSquare(5)}
+				</div>
+				<div className="row">
+					{printSquare(6)}
+					{printSquare(7)}
+					{printSquare(8)}
+				</div>
 			</div>
 		</div>
 	);
@@ -44,6 +58,8 @@ const Board = props => {
 export default Board;
 
 Board.propTypes = {
+	state: PropTypes.object,
+	winner: PropTypes.bool,
 	allSquares: PropTypes.array,
 	callBackFunc: PropTypes.func
 };

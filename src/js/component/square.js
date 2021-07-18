@@ -10,7 +10,9 @@ const Square = props => {
 		print = "fas fa-moon";
 	}
 	return (
-		<div className="col-4 square" onClick={props.callBackFunc}>
+		<div
+			className="col-4 square"
+			onClick={print === "" ? props.callBackFunc : null}>
 			<i className={print}></i>
 		</div>
 	);
