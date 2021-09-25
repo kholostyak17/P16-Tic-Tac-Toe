@@ -29,7 +29,7 @@ const Board = props => {
 				<div className="col-12 col-sm-5 offset-sm-2">
 					{"Turno: "}
 					{props.state.nextPlayer == true ? (
-						<i className="fas fa-sun"></i>
+						<i className="fas fa-star"></i>
 					) : (
 						<i className="fas fa-moon"></i>
 					)}

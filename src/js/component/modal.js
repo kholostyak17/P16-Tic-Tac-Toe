@@ -11,25 +11,25 @@ function MyModal(props) {
 	return (
 		<Modal {...props} aria-labelledby="contained-modal-title-vcenter">
 			<form>
-				<Modal.Header className="show-grid bg-warning" closeButton>
+				<Modal.Header className="show-grid bg-modal" closeButton>
 					<Modal.Title id="contained-modal-title-vcenter">
-						<span className="text-danger">Tic Tac Toe GAME</span>
+						<span className="modal-title">TIC TAC TOE JUEGO</span>
 					</Modal.Title>
 				</Modal.Header>
-				<Modal.Body className="show-grid bg-warning">
+				<Modal.Body className="show-grid bg-modal">
 					<Container>
 						<div className="row text-center">
 							<div className="col-12 col-sm-6">
 								<span className="font-weight-bold">
-									Player SUN
+									JUGADOR ESTRELLA
 								</span>
 								<div className="modal-icon">
-									<i className="fas fa-sun"></i>
+									<i className="fas fa-star"></i>
 								</div>
 							</div>
 							<div className="col-12 col-sm-6">
 								<span className="font-weight-bold">
-									Player MOON
+									JUGADOR LUNA
 								</span>
 								<div className="modal-icon">
 									<i className="fas fa-moon"></i>
@@ -38,9 +38,12 @@ function MyModal(props) {
 						</div>
 					</Container>
 				</Modal.Body>
-				<Modal.Footer className="show-grid bg-warning d-flex justify-content-center">
-					<Button variant="danger" onClick={props.onHide}>
-						Play!!
+				<Modal.Footer className="show-grid bg-modal d-flex justify-content-center">
+					<Button
+						className="btn button-color"
+						variant="secondary"
+						onClick={props.onHide}>
+						¡EMPEZAMOS!
 					</Button>
 				</Modal.Footer>
 			</form>
@@ -53,9 +56,11 @@ const AppModal = () => {
 
 	return (
 		<>
-			<Button variant="danger" onClick={() => setModalShow(true)}>
-				Resume
-			</Button>
+			<button
+				className="btn button-color"
+				onClick={() => setModalShow(true)}>
+				PAUSA
+			</button>
 			<MyModal show={modalShow} onHide={() => setModalShow(false)} />
 		</>
 	);

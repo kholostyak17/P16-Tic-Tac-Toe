@@ -39,7 +39,7 @@ const Game = props => {
 			const history = state.history.slice(0, state.stepNumber + 1);
 			const currentStep = history[history.length - 1]; //selecciono el jugador actual
 			const squares = currentStep.squares; //aqui hago una  array con todos los valores
-			squares[position] = state.nextPlayer ? true : false; //asigno valor a casilla: true(sun) o false(moon)
+			squares[position] = state.nextPlayer ? true : false; //asigno valor a casilla: true(star) o false(moon)
 
 			setState({
 				history: history.concat({ squares: squares }), //añado última lista de valores
@@ -53,9 +53,9 @@ const Game = props => {
 				setWinner(winner);
 				setTimeout(() => {
 					alert(
-						"Ha ganado ".concat(
-							winner == true ? "SUN" : "MOON",
-							"!!)))"
+						"¡FELICITACIONES ".concat(
+							winner == true ? "ESTRELLA" : "LUNA",
+							"!"
 						)
 					);
 				}, 250);
@@ -80,9 +80,9 @@ const Game = props => {
 				<AppModal />
 				<button
 					type="button"
-					className="btn btn-danger"
+					className="btn button-color"
 					onClick={() => setNewGame()}>
-					New game
+					JUEGA DE NUEVO
 				</button>
 			</div>
 			<Board

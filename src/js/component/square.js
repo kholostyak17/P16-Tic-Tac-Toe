@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 const Square = props => {
 	let print = "";
 	if (props.value == true) {
-		print = "fas fa-sun";
+		print = "fas fa-star";
 	}
 	if (props.value == false) {
 		print = "fas fa-moon";
